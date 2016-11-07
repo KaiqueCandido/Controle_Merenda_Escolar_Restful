@@ -32,6 +32,9 @@ public class ApplicationConfig extends Application {
         resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.EntradaMercadoriaWebService.class);
         resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.EscolaWebService.class);
         resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.FornecedoroWebService.class);
+        resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.MerendaEntradaMercadoriaWebService.class);
+        resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.MerendaFornecedorWebService.class);
+        resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.MerendaProdutoWebService.class);
         resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.ProdutoWebService.class);
     }
     

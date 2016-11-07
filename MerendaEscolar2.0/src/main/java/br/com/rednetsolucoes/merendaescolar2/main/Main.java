@@ -5,15 +5,13 @@
  */
 package br.com.rednetsolucoes.merendaescolar2.main;
 
+import br.com.rednetsolucoes.merendaescolar.entidades.MerendaFornecedor;
+import br.com.rednetsolucoes.merendaescolar.entidades.MerendaProduto;
+import br.com.rednetsolucoes.merendaescolar.enums.UnidadeMedida;
 import br.com.rednetsolucoes.merendaescolar2.dominio.EntradaMercadoria;
 import br.com.rednetsolucoes.merendaescolar2.dominio.Fornecedor;
 import br.com.rednetsolucoes.merendaescolar2.dominio.Produto;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -34,7 +32,7 @@ public class Main {
         EntradaMercadoria e = new EntradaMercadoria(1l, p1, fornecedor, 10l, "01/11/2016", 3.65, "PACOTE", "05/11/2016", "9999");
 
         Gson g = new Gson();
-        System.out.println(g.toJson(e).toString());
+//        System.out.println(g.toJson(e).toString());
 //        JsonObject jsonObject = new JsonObject();
 //        jsonObject.addProperty("id", e.getFornecedor().getId());
 //        jsonObject.addProperty("razaoSocial", fornecedor.getRazaoSocial());
@@ -43,5 +41,8 @@ public class Main {
 //        System.out.println(jsonObject);
 
 //        EntradaMercadoria entrada = new EntradaMercadoria(1l, produtos, fornecedor, 0, null, valorunitario, null, null, null)
+        MerendaFornecedor mf  = new MerendaFornecedor();        
+        MerendaProduto m = new MerendaProduto(20, UnidadeMedida.CAIXA, mf, 3.65, "ARROZ 1 KG", "ARR001");
+        System.out.println(g.toJson(m));
     }
 }

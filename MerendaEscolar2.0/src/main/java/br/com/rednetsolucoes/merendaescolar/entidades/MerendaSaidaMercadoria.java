@@ -7,6 +7,7 @@ package br.com.rednetsolucoes.merendaescolar.entidades;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class MerendaSaidaMercadoria implements Serializable {
     private Long id;
     @OneToOne
     private MerendaEscola escola;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<MerendaProduto> produtos;
 
     public MerendaSaidaMercadoria() {

@@ -6,6 +6,7 @@
 package br.com.rednetsolucoes.merendaescolar.entidades;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,7 @@ public class MerendaEscola implements Serializable {
     @SequenceGenerator(name = "merendaescola_generator", sequenceName = "merendaescola_seq", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "merendaescola_generator")
     private Long id;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private MerendaEstoque estoque;
     private String nome;
     private Long idEscola;

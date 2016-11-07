@@ -5,7 +5,9 @@
  */
 package br.com.rednetsolucoes.merendaescolar.entidades;
 
+import br.com.rednetsolucoes.merendaescolar.enums.UnidadeMedida;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,17 +19,16 @@ import javax.persistence.SequenceGenerator;
  *
  * @author Kaique Candido
  */
-@Entity
+    @Entity
 public class MerendaProduto implements Serializable{
     
     @Id
     @SequenceGenerator(name = "merendaproduto_generator", sequenceName = "merendaproduto_seq", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "merendaproduto_generator")
     private Long id;
-    private int qtde;
-    @OneToOne
-    private MerendaUnidadeMedida unidadeMedida;
-    @OneToOne
+    private int qtde;    
+    private UnidadeMedida unidadeMedida;            
+    @OneToOne(cascade = CascadeType.ALL)
     private MerendaFornecedor fornecedor;
     private Double valorUnitario;
     private String descricao;
@@ -37,7 +38,7 @@ public class MerendaProduto implements Serializable{
     public MerendaProduto() {
     }
 
-    public MerendaProduto(int qtde, MerendaUnidadeMedida unidadeMedida, MerendaFornecedor fornecedor, Double valorUnitario, String descricao, String codProduto) {
+    public MerendaProduto(int qtde, UnidadeMedida unidadeMedida, MerendaFornecedor fornecedor, Double valorUnitario, String descricao, String codProduto) {
         this.qtde = qtde;
         this.unidadeMedida = unidadeMedida;
         this.fornecedor = fornecedor;
@@ -46,7 +47,7 @@ public class MerendaProduto implements Serializable{
         this.codProduto = codProduto;
     }
 
-    public MerendaProduto(Long id, int qtde, MerendaUnidadeMedida unidadeMedida, MerendaFornecedor fornecedor, Double valorUnitario, String descricao, String codProduto) {
+    public MerendaProduto(Long id, int qtde, UnidadeMedida unidadeMedida, MerendaFornecedor fornecedor, Double valorUnitario, String descricao, String codProduto) {
         this.id = id;
         this.qtde = qtde;
         this.unidadeMedida = unidadeMedida;
@@ -72,11 +73,11 @@ public class MerendaProduto implements Serializable{
         this.qtde = qtde;
     }
 
-    public MerendaUnidadeMedida getUnidadeMedida() {
+    public UnidadeMedida getUnidadeMedida() {
         return unidadeMedida;
     }
 
-    public void setUnidadeMedida(MerendaUnidadeMedida unidadeMedida) {
+    public void setUnidadeMedida(UnidadeMedida unidadeMedida) {
         this.unidadeMedida = unidadeMedida;
     }
 
