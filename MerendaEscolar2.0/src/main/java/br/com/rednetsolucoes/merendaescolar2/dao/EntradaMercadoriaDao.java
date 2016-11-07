@@ -57,7 +57,7 @@ public class EntradaMercadoriaDao {
     }
 
     public List<EntradaMercadoria> listar() {
-        Query query = entityManager.createQuery("SELECT p FROM Produto p ORDER BY p.descricao");
+        Query query = entityManager.createQuery("SELECT e FROM EntradaMercadoria e");
         return query.getResultList();
     }
 

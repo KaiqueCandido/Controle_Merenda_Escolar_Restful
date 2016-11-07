@@ -4,13 +4,17 @@ br\com\rednetsolucoes\merendaescolar2\dominio\EntradaMercadoria_.class
 br\com\rednetsolucoes\merendaescolar2\dominio\EscolaEstoque_.class
 br\com\rednetsolucoes\merendaescolar2\service\ProdutoService.class
 br\com\rednetsolucoes\merendaescolar2\dao\SaidaMercadoriaDao.class
+br\com\rednetsolucoes\merendaescolar2\webservice\EntradaMercadoriaWebService$1.class
 br\com\rednetsolucoes\merendaescolar2\dao\ProdutoDao.class
 br\com\rednetsolucoes\merendaescolar2\serviceimpl\SaidaMercadoriaServiceImpl.class
 br\com\rednetsolucoes\merendaescolar2\dominio\Produto_.class
 br\com\rednetsolucoes\merendaescolar2\serviceimpl\EntradaMercadoriaServiceImpl.class
+br\com\rednetsolucoes\merendaescolar2\webservice\FornecedoroWebService$1.class
+br\com\rednetsolucoes\merendaescolar2\webservice\FornecedoroWebService.class
 br\com\rednetsolucoes\merendaescolar2\service\SaidaMercadoriaService.class
 br\com\rednetsolucoes\merendaescolar2\webservice\EscolaWebService$1.class
 br\com\rednetsolucoes\merendaescolar2\dominio\Fornecedor_.class
+br\com\rednetsolucoes\merendaescolar2\main\Main.class
 br\com\rednetsolucoes\merendaescolar2\serviceimpl\EscolaEstoqueServiceImpl.class
 br\com\rednetsolucoes\merendaescolar2\dominio\Fornecedor.class
 br\com\rednetsolucoes\merendaescolar2\dominio\SaidaMercadoria.class
@@ -27,4 +31,5 @@ br\com\rednetsolucoes\merendaescolar2\webservice\EscolaWebService.class
 br\com\rednetsolucoes\merendaescolar2\service\FornecedorService.class
 br\com\rednetsolucoes\merendaescolar2\serviceimpl\ProdutoServiceImpl.class
 br\com\rednetsolucoes\merendaescolar2\webservice\ProdutoWebService$1.class
+br\com\rednetsolucoes\merendaescolar2\webservice\EntradaMercadoriaWebService.class
 br\com\rednetsolucoes\merendaescolar2\service\EntradaMercadoriaService.class

@@ -29,7 +29,9 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.EntradaMercadoriaWebService.class);
         resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.EscolaWebService.class);
+        resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.FornecedoroWebService.class);
         resources.add(br.com.rednetsolucoes.merendaescolar2.webservice.ProdutoWebService.class);
     }
     
