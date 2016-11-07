@@ -9,6 +9,7 @@ import br.com.rednetsolucoes.merendaescolar.entidades.MerendaEntradaMercadoria;
 import br.com.rednetsolucoes.merendaescolar.entidades.MerendaProduto;
 import br.com.rednetsolucoes.merendaescolar.service.MerendaEntradaMercadoriaService;
 import br.com.rednetsolucoes.merendaescolar.service.MerendaProdutoService;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -53,22 +54,28 @@ public class MerendaEntradaMercadoriaWebService {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response addEntradaMercadoria(
             @FormParam("dataCompra") String dataCompra,
             @FormParam("dataEntrada") String dataEntrada,
             @FormParam("numeroNotaFical") String numeroNotaFical,
-            @FormParam("produtos") List<Long> idProdutos) {
-        
+            @FormParam("qtdeEntrada") int qtdeEntrada,
+            @FormParam("idProduto") Long idProduto) {
+
         MerendaEntradaMercadoria entradaMercadoria = new MerendaEntradaMercadoria();
         entradaMercadoria.setDataCompra(dataCompra);
         entradaMercadoria.setDataEntrada(dataEntrada);
         entradaMercadoria.setNumeroNotaFical(numeroNotaFical);
+        entradaMercadoria.setQtdeEntrada(qtdeEntrada);
         
-        for (Long idProduto : idProdutos) {
-            MerendaProduto produto = serviceProduto.pesquisar(MerendaProduto.class, idProduto);
-        }
+        MerendaProduto produto = serviceProduto.pesquisar(MerendaProduto.class, idProduto);
+        produto.atualizarQtde(qtdeEntrada);
+        serviceProduto.atualizar(produto);
         
-        return Response.ok().build();
+        entradaMercadoria.addNovoProduto(produto);
+
+        service.salvar(entradaMercadoria);
+        return Response.ok(entradaMercadoria).build();
     }
 
 //    Atualizar um Fornecedor

@@ -6,6 +6,7 @@
 package br.com.rednetsolucoes.merendaescolar.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -21,8 +22,8 @@ import javax.persistence.SequenceGenerator;
  * @author Kaique Candido
  */
 @Entity
-public class MerendaEstoque implements Serializable{
-    
+public class MerendaEstoque implements Serializable {
+
     @Id
     @SequenceGenerator(name = "merendaestoque_generator", sequenceName = "merendaestoque_seq", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "merendaestoque_generator")
@@ -31,15 +32,12 @@ public class MerendaEstoque implements Serializable{
     private List<MerendaProduto> produtos;
 
     public MerendaEstoque() {
+        this.produtos = new ArrayList<>();
     }
 
-    public MerendaEstoque(List<MerendaProduto> produtos) {
-        this.produtos = produtos;
-    }
-
-    public MerendaEstoque(Long id, List<MerendaProduto> produtos) {
+    public MerendaEstoque(Long id) {
         this.id = id;
-        this.produtos = produtos;
+        this.produtos = new ArrayList<>();
     }
 
     public Long getId() {
@@ -57,10 +55,15 @@ public class MerendaEstoque implements Serializable{
     public void setProdutos(List<MerendaProduto> produtos) {
         this.produtos = produtos;
     }
+    
+    public boolean addNovoProduto(MerendaProduto produto){
+        this.getProdutos().add(produto);
+        return true;
+    }
 
     @Override
     public String toString() {
         return "Estoque{" + "id=" + id + ", produtos=" + produtos + '}';
     }
-        
+
 }

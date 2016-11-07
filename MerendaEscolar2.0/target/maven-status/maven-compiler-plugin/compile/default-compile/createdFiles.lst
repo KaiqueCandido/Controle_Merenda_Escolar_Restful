@@ -1,4 +1,5 @@
 br\com\rednetsolucoes\merendaescolar\service\MerendaEstoqueService.class
+br\com\rednetsolucoes\merendaescolar2\webservice\MerendaEntradaMercadoriaWebService$1.class
 br\com\rednetsolucoes\merendaescolar2\webservice\MerendaFornecedorWebService$1.class
 br\com\rednetsolucoes\merendaescolar2\dominio\Produto.class
 org\netbeans\rest\application\config\ApplicationConfig.class
@@ -7,6 +8,7 @@ br\com\rednetsolucoes\merendaescolar2\webservice\MerendaFornecedorWebService.cla
 br\com\rednetsolucoes\merendaescolar2\service\ProdutoService.class
 br\com\rednetsolucoes\merendaescolar\serviceimpl\MerendaEscolaServiceImpl.class
 br\com\rednetsolucoes\merendaescolar\serviceimpl\MerendaEstoqueServiceImpl.class
+br\com\rednetsolucoes\merendaescolar2\webservice\MerendaEntradaMercadoriaWebService.class
 br\com\rednetsolucoes\merendaescolar2\dominio\Produto_.class
 br\com\rednetsolucoes\merendaescolar2\serviceimpl\EntradaMercadoriaServiceImpl.class
 br\com\rednetsolucoes\merendaescolar\entidades\MerendaEstoque.class

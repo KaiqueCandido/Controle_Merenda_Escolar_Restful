@@ -6,6 +6,7 @@
 package br.com.rednetsolucoes.merendaescolar.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -36,15 +37,15 @@ public class MerendaSaidaMercadoria implements Serializable {
     public MerendaSaidaMercadoria() {
     }
 
-    public MerendaSaidaMercadoria(MerendaEscola escola, List<MerendaProduto> produtos) {
+    public MerendaSaidaMercadoria(MerendaEscola escola) {
         this.escola = escola;
-        this.produtos = produtos;
+        this.produtos = new ArrayList<>();
     }
 
-    public MerendaSaidaMercadoria(Long id, MerendaEscola escola, List<MerendaProduto> produtos) {
+    public MerendaSaidaMercadoria(Long id, MerendaEscola escola) {
         this.id = id;
         this.escola = escola;
-        this.produtos = produtos;
+        this.produtos = new ArrayList<>();
     }
 
     public Long getId() {
@@ -69,6 +70,11 @@ public class MerendaSaidaMercadoria implements Serializable {
 
     public void setProdutos(List<MerendaProduto> produtos) {
         this.produtos = produtos;
+    }
+
+    public boolean addNovoProduto(MerendaProduto produto) {
+        this.getProdutos().add(produto);
+        return true;
     }
 
     @Override

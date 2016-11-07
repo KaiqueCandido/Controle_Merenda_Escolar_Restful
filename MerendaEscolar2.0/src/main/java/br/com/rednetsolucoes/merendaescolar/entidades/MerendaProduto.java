@@ -19,21 +19,20 @@ import javax.persistence.SequenceGenerator;
  *
  * @author Kaique Candido
  */
-    @Entity
-public class MerendaProduto implements Serializable{
-    
+@Entity
+public class MerendaProduto implements Serializable {
+
     @Id
     @SequenceGenerator(name = "merendaproduto_generator", sequenceName = "merendaproduto_seq", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "merendaproduto_generator")
     private Long id;
-    private int qtde;    
-    private UnidadeMedida unidadeMedida;            
+    private int qtde;
+    private UnidadeMedida unidadeMedida;
     @OneToOne(cascade = CascadeType.ALL)
     private MerendaFornecedor fornecedor;
     private Double valorUnitario;
     private String descricao;
     private String codProduto;
-    
 
     public MerendaProduto() {
     }
@@ -113,9 +112,14 @@ public class MerendaProduto implements Serializable{
         this.codProduto = codProduto;
     }
 
+    public boolean atualizarQtde(int valor) {
+        this.setQtde(valor + this.getQtde());
+        return true;
+    }
+
     @Override
     public String toString() {
         return "MerendaProduto{" + "id=" + id + ", qtde=" + qtde + ", unidadeMedida=" + unidadeMedida + ", fornecedor=" + fornecedor + ", valorUnitario=" + valorUnitario + ", descricao=" + descricao + ", codProduto=" + codProduto + '}';
-    }    
-       
+    }
+
 }

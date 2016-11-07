@@ -6,6 +6,7 @@
 package br.com.rednetsolucoes.merendaescolar.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,23 +32,27 @@ public class MerendaEntradaMercadoria implements Serializable {
     private String dataCompra;
     private String dataEntrada;
     private String numeroNotaFical;
+    private int qtdeEntrada;
 
     public MerendaEntradaMercadoria() {
+        this.produtos = new ArrayList<>();
     }
 
-    public MerendaEntradaMercadoria(List<MerendaProduto> produtos, String dataCompra, String dataEntrada, String numeroNotaFical) {
-        this.produtos = produtos;
+    public MerendaEntradaMercadoria(String dataCompra, String dataEntrada, String numeroNotaFical, int qtdeEntrada) {
+        this.produtos = new ArrayList<>();
         this.dataCompra = dataCompra;
         this.dataEntrada = dataEntrada;
         this.numeroNotaFical = numeroNotaFical;
+        this.qtdeEntrada = qtdeEntrada;
     }
 
-    public MerendaEntradaMercadoria(Long id, List<MerendaProduto> produtos, String dataCompra, String dataEntrada, String numeroNotaFical) {
+    public MerendaEntradaMercadoria(Long id, String dataCompra, String dataEntrada, String numeroNotaFical, int qtdeEntrada) {
         this.id = id;
-        this.produtos = produtos;
+        this.produtos = new ArrayList<>();
         this.dataCompra = dataCompra;
         this.dataEntrada = dataEntrada;
         this.numeroNotaFical = numeroNotaFical;
+        this.qtdeEntrada = qtdeEntrada;
     }
 
     public Long getId() {
@@ -88,6 +93,19 @@ public class MerendaEntradaMercadoria implements Serializable {
 
     public void setNumeroNotaFical(String numeroNotaFical) {
         this.numeroNotaFical = numeroNotaFical;
+    }
+
+    public int getQtdeEntrada() {
+        return qtdeEntrada;
+    }
+
+    public void setQtdeEntrada(int qtdeEntrada) {
+        this.qtdeEntrada = qtdeEntrada;
+    }
+
+    public boolean addNovoProduto(MerendaProduto produto) {
+        this.getProdutos().add(produto);
+        return true;
     }
 
     @Override
